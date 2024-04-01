@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+#Library {
+  background-color: #282c34;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#Want_To_Read {
+  background-color: #8897b5;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.imageSpecifications{
+  width: 150px;
+  height: auto;
+}

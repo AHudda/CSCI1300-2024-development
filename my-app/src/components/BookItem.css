@@ -1,0 +1,14 @@
+.BookItem{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.BookInfo{
+    display: flex;
+    flex-direction: column;
+    line-height: 2px;
+    h2{
+        font-size: calc(10px + 1vmin);
+    }
+}

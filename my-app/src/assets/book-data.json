@@ -1,0 +1,98 @@
+[
+    {
+        "title":"Atomic Habits",
+        "author":"James Clear",
+        "genre":"Self-Help",
+        "stars":4.8,
+        "length":250,
+        "image":"images/atomic_habits.png"
+    },
+    {
+        "title":"Book Lovers",
+        "author":"Emily Henry",
+        "genre":"Romance",
+        "stars":4.1,
+        "length":416,
+        "image":"images/book_lovers.png"
+    },
+    {
+        "title":"Circe",
+        "author":"Madeline Miller",
+        "genre":"Fantasy",
+        "stars":4.2,
+        "length":393,
+        "image":"images/circe.png"
+    },
+    {
+        "title":"Crescent City",
+        "author":"Sarah J Maas",
+        "genre":"Fantasy",
+        "stars":4.2,
+        "length":951,
+        "image":"images/crescent_city.png"
+    },
+    {
+        "title":"Dune",
+        "author":"Frank Herbert",
+        "genre":"Science Fiction",
+        "stars":4.3,
+        "length":704,
+        "image":"images/dune.png"
+    },
+    {
+        "title":"Gone Girl",
+        "author":"Gillian Flynn",
+        "genre":"Thriller",
+        "stars":4.1,
+        "length":432,
+        "image":"images/gone_girl.png"
+    },
+    {
+        "title":"Lessons In Chemistry",
+        "author":"Bonnie Garmus",
+        "genre":"Historical Fiction",
+        "stars":4.6,
+        "length":400,
+        "image":"images/lessons_in_chemistry.png"
+    },
+    {
+        "title":"Powerless",
+        "author":"Lauren Roberts",
+        "genre":"Fantasy",
+        "stars":4.3,
+        "length":523,
+        "image":"images/powerless.png"
+    },
+    {
+        "title":"Project Hail Mary",
+        "author":"Andy Weir",
+        "genre":"Science Fiction",
+        "stars":4.5,
+        "length":496,
+        "image":"images/project_hail_mary.png"
+    },
+    {
+        "title":"The Boys In The Boat",
+        "author":"Daniel James Brown",
+        "genre":"Non-Fiction",
+        "stars":4.4,
+        "length":404,
+        "image":"images/the_boys_in_the_boat.png"
+    },
+    {
+        "title":"The Shining",
+        "author":"Stephen King",
+        "genre":"Horror Fiction",
+        "stars":3.9,
+        "length":464,
+        "image":"images/the_shining.png"
+    },
+    {
+        "title":"The Sympathizer",
+        "author":"Viet Thanh Nguyen",
+        "genre":"Historical Fiction",
+        "stars":4,
+        "length":416,
+        "image":"images/the_sympathizer.png"
+    }
+]
