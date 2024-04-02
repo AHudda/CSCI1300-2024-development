@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import bookData from "./assets/book-data.json";
 import BookItem from "./components/BookItem";
 
@@ -18,12 +18,36 @@ function App() {
   const addToWantToReadBooks = (newBook) => setWantToReadBooks(new Set([... wantToReadBooks, newBook]))
   const removeFromWantToReadBooks = (bookToRemove) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== bookToRemove)));
 
+  const [bookItems, setBookItems] = useState([]);
+
+  useEffect(() => {
+    setBookItems(bookData.map((item, index) => ({
+      key: index,
+      title: item.title,
+      author: item.author,
+      genre: item.genre,
+      stars: item.stars,
+      length: item.length,
+      image: item.image,
+    })));
+  }, []);
+
+  const sortByLength = () => {
+    const sortedBookItems = [...bookItems].sort((a, b) => a.length - b.length);
+    setBookItems(sortedBookItems);
+  }
+
+  const resetSorting = () => {
+    const sortedBookItems = [...bookItems].sort((a, b) => a.key - b.key);
+    setBookItems(sortedBookItems);
+  }
+
   return (
     <div className="App">
       <header id="Library">
         <h1>Library</h1>
-        {bookData.map((item, index) => (
-        <BookItem key={index} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
+        {bookItems.map((item) => (
+        <BookItem key={item.key} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
            incrementWantToReadTotal={incrementWantToReadTotal} 
            decrementWantToReadTotal = {decrementWantToReadTotal} 
            addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
@@ -32,6 +56,8 @@ function App() {
       </header>
       <header id="Filters">
         <h1>Filters</h1>
+        <button onClick={sortByLength}>Sort by Length</button>
+        <button onClick={resetSorting}>Reset Sorting</button>
       </header>
       <header id="Want_To_Read">
         <h1>Want To Read</h1>
