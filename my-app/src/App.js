@@ -18,25 +18,24 @@ function App() {
   const addToWantToReadBooks = (newBook) => setWantToReadBooks(new Set([... wantToReadBooks, newBook]))
   const removeFromWantToReadBooks = (bookToRemove) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== bookToRemove)));
 
-  const [bookItems, setBookItems] = useState([]);
+  // Using useState to ensure that BookItem(s) can maintain their internal state when re-rendered
+  const [bookItems, setBookItems] = useState(bookData.map((item, index) => ({
+    key: index,
+    title: item.title,
+    author: item.author,
+    genre: item.genre,
+    stars: item.stars,
+    length: item.length,
+    image: item.image,
+  })));
 
-  useEffect(() => {
-    setBookItems(bookData.map((item, index) => ({
-      key: index,
-      title: item.title,
-      author: item.author,
-      genre: item.genre,
-      stars: item.stars,
-      length: item.length,
-      image: item.image,
-    })));
-  }, []);
-
+  // Function to sort book items by number of pages (low to high)
   const sortByLength = () => {
     const sortedBookItems = [...bookItems].sort((a, b) => a.length - b.length);
     setBookItems(sortedBookItems);
   }
 
+  // Function to reset book items to their original order
   const resetSorting = () => {
     const sortedBookItems = [...bookItems].sort((a, b) => a.key - b.key);
     setBookItems(sortedBookItems);
@@ -47,11 +46,12 @@ function App() {
       <header id="Library">
         <h1>Library</h1>
         {bookItems.map((item) => (
-        <BookItem key={item.key} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
-           incrementWantToReadTotal={incrementWantToReadTotal} 
-           decrementWantToReadTotal = {decrementWantToReadTotal} 
-           addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
-           removeFromWantToReadBooks={(bookToRemove) => removeFromWantToReadBooks(bookToRemove)}/>
+          <BookItem key={item.key} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
+            incrementWantToReadTotal={incrementWantToReadTotal} 
+            decrementWantToReadTotal={decrementWantToReadTotal} 
+            addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
+            removeFromWantToReadBooks={(bookToRemove) => removeFromWantToReadBooks(bookToRemove)}
+          />
         ))}
       </header>
       <header id="Filters">
