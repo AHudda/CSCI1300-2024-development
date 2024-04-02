@@ -4,6 +4,7 @@ import './BookItem.css';
 
 export default function BookItem(props){
     const [inWantToRead, setInWantToRead] = useState(false);
+
     return (
         <div class="BookItem">
             <img class="imageSpecifications" src={props.image} alt={props.title}/>
