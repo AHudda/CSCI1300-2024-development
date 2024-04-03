@@ -105,28 +105,28 @@ function App() {
             
             <div class="ButtonsAndHeader">
               <h6>Sorting</h6>
-              <button onClick={sortByLength}>Sort by Length (shortest to longest)</button>
-              <button onClick={sortByStars}>Sort by Stars (highest to lowest)</button>
+              <button onClick={sortByLength} aria-label="Sort by Length (shortest to longest)">Sort by Length (shortest to longest)</button>
+              <button onClick={sortByStars} aria-label="Sort by Stars (most to least)">Sort by Stars (highest to lowest)</button>
             </div>
             <div class="ButtonsAndHeader">
               <h6>Genre Filtering</h6>
-              <button onClick={() => {setFantasyFilterOn(true); addFilter("Fantasy"); }}>Fantasy</button>
-              <button onClick={() => {setRomanceFilterOn(true); addFilter("Romance");}}>Romance</button>
-              <button onClick={() => {setSelfHelpFilterOn(true); addFilter("Self-Help");}}>Self-Help</button>
-              <button onClick={() => {setScienceFictionFilterOn(true); addFilter("Science Fiction");}}>Science Fiction</button>
-              <button onClick={() => {setHorrorFilterOn(true); addFilter("Horror");}}>Horror</button>
-              <button onClick={() => {setHistoricalFictionFilterOn(true); addFilter("Historical Fiction");}}>Historical Fiction</button>
-              <button onClick={() => {setNonFictionFilterOn(true); addFilter("Non-Fiction");}}>Non-Fiction</button>
-              <button onClick={() => {setThrillerFilterOn(true); addFilter("Thriller");}}>Thriller</button>
+              <button onClick={() => {setFantasyFilterOn(true); addFilter("Fantasy"); }} aria-label="Filter to view only fantasy genre books">Fantasy</button>
+              <button onClick={() => {setRomanceFilterOn(true); addFilter("Romance");}} aria-label="Filter to view only romance genre books">Romance</button>
+              <button onClick={() => {setSelfHelpFilterOn(true); addFilter("Self-Help");}} aria-label="Filter to view only self-help genre books">Self-Help</button>
+              <button onClick={() => {setScienceFictionFilterOn(true); addFilter("Science Fiction");}} aria-label="Filter to view only science fiction genre books">Science Fiction</button>
+              <button onClick={() => {setHorrorFilterOn(true); addFilter("Horror");}} aria-label="Filter to view only horror genre books">Horror</button>
+              <button onClick={() => {setHistoricalFictionFilterOn(true); addFilter("Historical Fiction");}} aria-label="Filter to view only historical fiction genre books">Historical Fiction</button>
+              <button onClick={() => {setNonFictionFilterOn(true); addFilter("Non-Fiction");}} aria-label="Filter to view only non-fiction genre books">Non-Fiction</button>
+              <button onClick={() => {setThrillerFilterOn(true); addFilter("Thriller");}} aria-label="Filter to view only thriller genre books">Thriller</button>
             </div>
             <div class="ButtonsAndHeader">
               <h6>Stars Filtering</h6>
-              <button onClick={() => {setLessThanFourStarsFilterOn(true); addFilter("Less Than 4 Stars");}}>Less Than 4 Stars</button>
-              <button onClick={() => {setFourStarsOrMoreFilterOn(true); addFilter("4 Stars or More");}}>4 Stars or More</button>
+              <button onClick={() => {setLessThanFourStarsFilterOn(true); addFilter("Less Than 4 Stars");}} aria-label="Filter to view only books with less than 4 stars">Less Than 4 Stars</button>
+              <button onClick={() => {setFourStarsOrMoreFilterOn(true); addFilter("4 Stars or More");}} aria-label="Filter to view only books with 4 or more stars">4 Stars or More</button>
             </div>
             <div class="ButtonsAndHeader">
               <h6>Reset</h6>
-              <button onClick={reset}>Reset</button>
+              <button onClick={reset} aria-label="Button to reset filtering and sorting to the default">Reset</button>
             </div>
             <h5>Active Filters: {Array.from(filters).join(', ')}</h5>
 

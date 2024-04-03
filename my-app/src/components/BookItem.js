@@ -4,7 +4,7 @@ import './BookItem.css';
 export default function BookItem(props){
     return (
         <div class="BookItem">
-            <img class="imageSpecifications" src={props.image} alt={props.title}/>
+            <img class="imageSpecifications" src={props.image} alt={props.title} aria-label={`image of the book ${props.title}`}/>
             <div class="BookInfo">
                 <h2>{props.title}</h2>
                 <h3>{props.author}</h3>
