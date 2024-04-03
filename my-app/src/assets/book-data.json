@@ -1,5 +1,13 @@
 [
     {
+        "title":"Lessons In Chemistry",
+        "author":"Bonnie Garmus",
+        "genre":"Historical Fiction",
+        "stars":4.6,
+        "length":400,
+        "image":"images/lessons_in_chemistry.png"
+    },
+    {
         "title":"Atomic Habits",
         "author":"James Clear",
         "genre":"Self-Help",
@@ -32,14 +40,6 @@
         "image":"images/crescent_city.png"
     },
     {
-        "title":"Dune",
-        "author":"Frank Herbert",
-        "genre":"Science Fiction",
-        "stars":4.3,
-        "length":704,
-        "image":"images/dune.png"
-    },
-    {
         "title":"Gone Girl",
         "author":"Gillian Flynn",
         "genre":"Thriller",
@@ -48,12 +48,12 @@
         "image":"images/gone_girl.png"
     },
     {
-        "title":"Lessons In Chemistry",
-        "author":"Bonnie Garmus",
-        "genre":"Historical Fiction",
-        "stars":4.6,
-        "length":400,
-        "image":"images/lessons_in_chemistry.png"
+        "title":"Dune",
+        "author":"Frank Herbert",
+        "genre":"Science Fiction",
+        "stars":4.3,
+        "length":704,
+        "image":"images/dune.png"
     },
     {
         "title":"Powerless",

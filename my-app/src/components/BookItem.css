@@ -1,14 +1,27 @@
 .BookItem{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 10px;
+    padding: 8px;
 }
 
 .BookInfo{
     display: flex;
     flex-direction: column;
-    line-height: 2px;
+    line-height: .0001px;
     h2{
-        font-size: calc(10px + 1vmin);
+        font-size: 20px;
+        font-weight: bold;
+    }
+    h3{
+        font-size: 13.5px;
+        margin-top: 7px;
+
     }
 }
+
+.imageSpecifications{
+    width: 105px;
+    height: 165px;
+  }

@@ -1,27 +1,73 @@
 .App {
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+
+  button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13.5px;
+    background-color: #efe7dc;
+  }
+}
+
+#Body{
+  background-color: #efe7dc;
+  h1{
+    margin: 0px;
+    padding: 15px;
+    font-size: calc(10px + 5vmin);
+    border-bottom: 1px solid black;
+  }
+  h6{
+    margin: 0px;
+    padding: 15px;
+    font-size: calc(5px + 3vmin);
+  }
+}
+
+#BodyOrganization{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#Functionality{
+  max-width: 17%;
+  margin-left: 40px;
+  padding-right: 10px;
+  margin-bottom: 135px;
+  border-right: 2px solid black;
+  h1{
+    font-size: calc(10px + 2vmin);
+  }
+}
+
+.ButtonsAndHeader{
+  background-color: #efe7dc;
 }
 
 #Library {
-  background-color: #282c34;
   min-height: 15vh;
+  min-width: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .topRow{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 .bottomRow{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
 #Want_To_Read {
@@ -31,11 +77,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.imageSpecifications{
-  width: 150px;
-  height: auto;
+  font-size: calc(5px + 2vmin);
+  color: black;
 }

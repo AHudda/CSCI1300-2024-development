@@ -59,7 +59,7 @@ function App() {
   }
 
   // Function to reset book items to their original order
-  const resetSorting = () => {
+  const reset = () => {
     const sortedBookItems = [...bookItems].sort((a, b) => a.key - b.key);
     setBookItems(sortedBookItems);
     setFantasyFilterOn(false);
@@ -92,67 +92,85 @@ function App() {
 
   return (
     <div className="App">
-      <header id="Library">
-      <h1>Library</h1>
-      <div className="topRow">
-        {topRowItems.map((item) => (
-          <BookItem
-            key={item.key}
-            title={item.title}
-            author={item.author}
-            genre={item.genre}
-            stars={item.stars}
-            length={item.length}
-            image={item.image}
-            inWantToRead={wantToReadBooks.has(item.title)}
-            incrementWantToReadTotal={incrementWantToReadTotal} 
-            decrementWantToReadTotal={decrementWantToReadTotal} 
-            addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
-            removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
-          />
-        ))}
-      </div>
-      <div className="bottomRow">
-        {bottomRowItems.map((item) => (
-          <BookItem
-            key={item.key}
-            title={item.title}
-            author={item.author}
-            genre={item.genre}
-            stars={item.stars}
-            length={item.length}
-            image={item.image} 
-            inWantToRead={wantToReadBooks.has(item.title)}
-            incrementWantToReadTotal={incrementWantToReadTotal} 
-            decrementWantToReadTotal={decrementWantToReadTotal} 
-            addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
-            removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
-          />
-        ))}
-      </div>
+      <header id="Body">
+        <h1>Library</h1>
+        <header id="BodyOrganization">
+          <header id="Functionality">
+            
+            <div class="ButtonsAndHeader">
+              <h6>Sorting</h6>
+              <button onClick={sortByLength}>Sort by Length (shortest to longest)</button>
+              <button onClick={sortByStars}>Sort by Stars (highest to lowest)</button>
+            </div>
+            <div class="ButtonsAndHeader">
+              <h6>Genre Filtering</h6>
+              <button onClick={() => setFantasyFilterOn(true)}>Fantasy</button>
+              <button onClick={() => setRomanceFilterOn(true)}>Romance</button>
+              <button onClick={() => setSelfHelpFilterOn(true)}>Self-Help</button>
+              <button onClick={() => setScienceFictionFilterOn(true)}>Science Fiction</button>
+              <button onClick={() => setHorrorFilterOn(true)}>Horror</button>
+              <button onClick={() => setHistoricalFictionFilterOn(true)}>Historical Fiction</button>
+              <button onClick={() => setNonFictionFilterOn(true)}>Non-Fiction</button>
+              <button onClick={() => setThrillerFilterOn(true)}>Thriller</button>
+            </div>
+            <div class="ButtonsAndHeader">
+              <h6>Stars Filtering</h6>
+              <button onClick={() => setLessThanFourStarsFilterOn(true)}>Less Than 4 Stars</button>
+              <button onClick={() => setFourStarsOrMoreFilterOn(true)}>4 Stars or More</button>
+            </div>
+            <div class="ButtonsAndHeader">
+              <h6>Reset</h6>
+              <button onClick={reset}>Reset</button>
+            </div>
+
+          </header>
+
+          <header id="Library">
+            <div className="topRow">
+              {topRowItems.map((item) => (
+                <BookItem
+                  key={item.key}
+                  title={item.title}
+                  author={item.author}
+                  genre={item.genre}
+                  stars={item.stars}
+                  length={item.length}
+                  image={item.image}
+                  inWantToRead={wantToReadBooks.has(item.title)}
+                  incrementWantToReadTotal={incrementWantToReadTotal} 
+                  decrementWantToReadTotal={decrementWantToReadTotal} 
+                  addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
+                  removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
+                />
+              ))}
+            </div>
+            <div className="bottomRow">
+              {bottomRowItems.map((item) => (
+                <BookItem
+                  key={item.key}
+                  title={item.title}
+                  author={item.author}
+                  genre={item.genre}
+                  stars={item.stars}
+                  length={item.length}
+                  image={item.image} 
+                  inWantToRead={wantToReadBooks.has(item.title)}
+                  incrementWantToReadTotal={incrementWantToReadTotal} 
+                  decrementWantToReadTotal={decrementWantToReadTotal} 
+                  addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
+                  removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
+                />
+              ))}
+            </div>
+          </header>
+        </header>
+      </header>
+    <header id="Want_To_Read">
+      <h1>Want To Read</h1>
+      <h2>Books in list: {wantToReadBooks}</h2>
+      <h2>Total books: {wantToReadTotal}</h2>
     </header>
-      <header id="Guide">
-        <h1>Filters</h1>
-        <button onClick={sortByLength}>Sort by Length (shortest to longest)</button>
-        <button onClick={sortByStars}>Sort by Stars (highest to lowest)</button>
-        <button onClick={resetSorting}>Reset Sorting</button>
-        <button onClick={() => setFantasyFilterOn(true)}>Fantasy</button>
-        <button onClick={() => setRomanceFilterOn(true)}>Romance</button>
-        <button onClick={() => setSelfHelpFilterOn(true)}>Self-Help</button>
-        <button onClick={() => setScienceFictionFilterOn(true)}>Science Fiction</button>
-        <button onClick={() => setHorrorFilterOn(true)}>Horror</button>
-        <button onClick={() => setHistoricalFictionFilterOn(true)}>Historical Fiction</button>
-        <button onClick={() => setNonFictionFilterOn(true)}>Non-Fiction</button>
-        <button onClick={() => setThrillerFilterOn(true)}>Thriller</button>
-        <button onClick={() => setLessThanFourStarsFilterOn(true)}>Less Than 4 Stars</button>
-        <button onClick={() => setFourStarsOrMoreFilterOn(true)}>4 Stars or More</button>
-      </header>
-      <header id="Want_To_Read">
-        <h1>Want To Read</h1>
-        <h2>Books in list: {wantToReadBooks}</h2>
-        <h2>Total books: {wantToReadTotal}</h2>
-      </header>
-    </div>
+   </div>
   );
 }
 
