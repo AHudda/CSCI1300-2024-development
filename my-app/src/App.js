@@ -81,14 +81,14 @@ function App() {
   }
 
   const filteredBookItems = bookItems.filter((item) => 
-  (!fantasyFilterOn || item.genre === "Fantasy") && 
-  (!romanceFilterOn || item.genre === "Romance") && 
-  (!selfHelpFilterOn || item.genre === "Self-Help") && 
-  (!scienceFictionFilterOn || item.genre === "Science Fiction") && 
-  (!horrorFilterOn || item.genre === "Horror") && 
-  (!historicalFictionFilterOn || item.genre === "Historical Fiction") && 
-  (!nonFictionFilterOn || item.genre === "Non-Fiction") && 
-  (!thrillerFilterOn || item.genre === "Thriller") && 
+  (!fantasyFilterOn || item.genre.includes("Fantasy")) && 
+  (!romanceFilterOn || item.genre.includes("Romance")) && 
+  (!selfHelpFilterOn || item.genre.includes("Self-Help")) && 
+  (!scienceFictionFilterOn || item.genre.includes("Science Fiction")) && 
+  (!horrorFilterOn || item.genre.includes("Horror")) && 
+  (!historicalFictionFilterOn || item.genre.includes("Historical Fiction")) && 
+  (!nonFictionFilterOn || item.genre.includes("Non-Fiction")) && 
+  (!thrillerFilterOn || item.genre.includes("Thriller")) && 
   (!lessThanFourStarsFilterOn || item.stars < 4) && 
   (!fourStarsOrMoreFilterOn || item.stars >= 4));
 

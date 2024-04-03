@@ -34,7 +34,7 @@
     {
         "title":"Crescent City",
         "author":"Sarah J Maas",
-        "genre":"Fantasy",
+        "genre":"Fantasy, Romance",
         "stars":4.2,
         "length":951,
         "image":"images/crescent_city.png"
@@ -50,7 +50,7 @@
     {
         "title":"Dune",
         "author":"Frank Herbert",
-        "genre":"Science Fiction",
+        "genre":"Science Fiction, Fantasy",
         "stars":4.3,
         "length":704,
         "image":"images/dune.png"
@@ -90,7 +90,7 @@
     {
         "title":"The Sympathizer",
         "author":"Viet Thanh Nguyen",
-        "genre":"Historical Fiction",
+        "genre":"Historical Fiction, Thriller",
         "stars":4,
         "length":416,
         "image":"images/the_sympathizer.png"
