@@ -33,6 +33,13 @@ function App() {
   const [lessThanFourStarsFilterOn, setLessThanFourStarsFilterOn] = useState(false);
   const [fourStarsOrMoreFilterOn, setFourStarsOrMoreFilterOn] = useState(false);
 
+  // Genre Filters
+  const [filters, setFilters] = useState(new Set());
+
+  // Function to add filter
+  const addFilter = (filter) => setFilters(new Set([... filters, filter]));
+
+
   // Using useState to ensure that BookItem(s) can maintain their internal state when re-rendered
   const [bookItems, setBookItems] = useState(bookData.map((item, index) => ({
     key: index,
@@ -70,6 +77,7 @@ function App() {
     setThrillerFilterOn(false);
     setLessThanFourStarsFilterOn(false);
     setFourStarsOrMoreFilterOn(false);
+    setFilters(new Set());
   }
 
   const filteredBookItems = bookItems.filter((item) => 
@@ -102,24 +110,25 @@ function App() {
             </div>
             <div class="ButtonsAndHeader">
               <h6>Genre Filtering</h6>
-              <button onClick={() => setFantasyFilterOn(true)}>Fantasy</button>
-              <button onClick={() => setRomanceFilterOn(true)}>Romance</button>
-              <button onClick={() => setSelfHelpFilterOn(true)}>Self-Help</button>
-              <button onClick={() => setScienceFictionFilterOn(true)}>Science Fiction</button>
-              <button onClick={() => setHorrorFilterOn(true)}>Horror</button>
-              <button onClick={() => setHistoricalFictionFilterOn(true)}>Historical Fiction</button>
-              <button onClick={() => setNonFictionFilterOn(true)}>Non-Fiction</button>
-              <button onClick={() => setThrillerFilterOn(true)}>Thriller</button>
+              <button onClick={() => {setFantasyFilterOn(true); addFilter("Fantasy"); }}>Fantasy</button>
+              <button onClick={() => {setRomanceFilterOn(true); addFilter("Romance");}}>Romance</button>
+              <button onClick={() => {setSelfHelpFilterOn(true); addFilter("Self-Help");}}>Self-Help</button>
+              <button onClick={() => {setScienceFictionFilterOn(true); addFilter("Science Fiction");}}>Science Fiction</button>
+              <button onClick={() => {setHorrorFilterOn(true); addFilter("Horror");}}>Horror</button>
+              <button onClick={() => {setHistoricalFictionFilterOn(true); addFilter("Historical Fiction");}}>Historical Fiction</button>
+              <button onClick={() => {setNonFictionFilterOn(true); addFilter("Non-Fiction");}}>Non-Fiction</button>
+              <button onClick={() => {setThrillerFilterOn(true); addFilter("Thriller");}}>Thriller</button>
             </div>
             <div class="ButtonsAndHeader">
               <h6>Stars Filtering</h6>
-              <button onClick={() => setLessThanFourStarsFilterOn(true)}>Less Than 4 Stars</button>
-              <button onClick={() => setFourStarsOrMoreFilterOn(true)}>4 Stars or More</button>
+              <button onClick={() => {setLessThanFourStarsFilterOn(true); addFilter("Less Than 4 Stars");}}>Less Than 4 Stars</button>
+              <button onClick={() => {setFourStarsOrMoreFilterOn(true); addFilter("4 Stars or More");}}>4 Stars or More</button>
             </div>
             <div class="ButtonsAndHeader">
               <h6>Reset</h6>
               <button onClick={reset}>Reset</button>
             </div>
+            <h5>Active Filters: {Array.from(filters).join('; ')}</h5>
 
           </header>
 
@@ -165,7 +174,7 @@ function App() {
       </header>
     <header id="Want_To_Read">
       <h1>Want To Read</h1>
-      <h2>Books in list: {Array.from(wantToReadBooks).join(', ')}</h2>
+      <h2>Books in list: <span className="smallerFont">{Array.from(wantToReadBooks).join('; ')}</span></h2>
       <h3>Total books: {wantToReadTotal}</h3>
     </header>
    </div>
