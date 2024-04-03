@@ -128,7 +128,7 @@ function App() {
               <h6>Reset</h6>
               <button onClick={reset}>Reset</button>
             </div>
-            <h5>Active Filters: {Array.from(filters).join('; ')}</h5>
+            <h5>Active Filters: {Array.from(filters).join(', ')}</h5>
 
           </header>
 
@@ -174,7 +174,7 @@ function App() {
       </header>
     <header id="Want_To_Read">
       <h1>Want To Read</h1>
-      <h2>Books in list: <span className="smallerFont">{Array.from(wantToReadBooks).join('; ')}</span></h2>
+      <h2>Books in list: <span className="smallerFont">{Array.from(wantToReadBooks).join(', ')}</span></h2>
       <h3>Total books: {wantToReadTotal}</h3>
     </header>
    </div>
