@@ -1,22 +1,33 @@
 .App {
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  color: black;
+  color: white;
 
-  button{
+  button {
     font-family: 'Times New Roman', Times, serif;
     font-size: 13.5px;
-    background-color: #efe7dc;
+    background-color: black;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: black;
   }
 }
 
 #Body{
-  background-color: #efe7dc;
+  background-color: black;
   h1{
     margin: 0px;
     padding: 15px;
     font-size: calc(10px + 5vmin);
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
   }
   h6{
     margin: 0px;
@@ -36,14 +47,19 @@
   margin-left: 40px;
   padding-right: 10px;
   margin-bottom: 135px;
-  border-right: 2px solid black;
+  border-right: 2px solid white;
   h1{
     font-size: calc(10px + 2vmin);
+  }
+  button{
+    font-size: 14.5px;
+    padding: 5px;
+    margin: 3px;
   }
 }
 
 .ButtonsAndHeader{
-  background-color: #efe7dc;
+  background-color: black;
 }
 
 #Library {
@@ -54,7 +70,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: white;
 }
 
 .topRow{
@@ -71,12 +87,18 @@
 }
 
 #Want_To_Read {
-  background-color: #8897b5;
+  background-color: black;
   min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(5px + 2vmin);
-  color: black;
+
+  h1{
+    margin: 0px;
+    padding: 15px;
+    font-size: calc(10px + 5vmin);
+    border-bottom: 1px solid white;
+  }
 }
