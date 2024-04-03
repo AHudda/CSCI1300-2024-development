@@ -101,12 +101,12 @@
   h1{
     margin: 0px;
     padding: 15px;
-    font-size: calc(10px + 5vmin);
+    font-size: calc(10px + 4vmin);
     border-bottom: 1px solid white;
   }
 
   h2{
-    font-size: calc(10px + 3vmin);
+    font-size: calc(7px + 3vmin);
   }
 
   h3{
