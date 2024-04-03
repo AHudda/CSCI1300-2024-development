@@ -13,6 +13,17 @@
   color: white;
 }
 
+.topRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.bottomRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 #Want_To_Read {
   background-color: #8897b5;
   min-height: 15vh;

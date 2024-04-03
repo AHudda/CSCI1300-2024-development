@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import bookData from "./assets/book-data.json";
 import BookItem from "./components/BookItem";
 
@@ -17,8 +16,10 @@ function App() {
 
   // Books in "Want To Read"
   const [wantToReadBooks, setWantToReadBooks] = useState(new Set());
-  const addToWantToReadBooks = (newBook) => setWantToReadBooks(new Set([... wantToReadBooks, newBook]))
-  const removeFromWantToReadBooks = (bookToRemove) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== bookToRemove)));
+  const addToWantToReadBooks = (newTitle) => setWantToReadBooks(new Set([... wantToReadBooks, newTitle]));
+  const removeFromWantToReadBooks = (removeTitle) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== removeTitle)));
+  
+    
 
   // Genre Filters
   const [fantasyFilterOn, setFantasyFilterOn] = useState(false);
@@ -73,27 +74,63 @@ function App() {
     setFourStarsOrMoreFilterOn(false);
   }
 
+  const filteredBookItems = bookItems.filter((item) => 
+  (!fantasyFilterOn || item.genre === "Fantasy") && 
+  (!romanceFilterOn || item.genre === "Romance") && 
+  (!selfHelpFilterOn || item.genre === "Self-Help") && 
+  (!scienceFictionFilterOn || item.genre === "Science Fiction") && 
+  (!horrorFilterOn || item.genre === "Horror") && 
+  (!historicalFictionFilterOn || item.genre === "Historical Fiction") && 
+  (!nonFictionFilterOn || item.genre === "Non-Fiction") && 
+  (!thrillerFilterOn || item.genre === "Thriller") && 
+  (!lessThanFourStarsFilterOn || item.stars < 4) && 
+  (!fourStarsOrMoreFilterOn || item.stars >= 4));
+
+  const itemsPerRow = 6;
+  const topRowItems = filteredBookItems.slice(0, itemsPerRow);
+  const bottomRowItems = filteredBookItems.slice(itemsPerRow); 
+
   return (
     <div className="App">
       <header id="Library">
-        <h1>Library</h1>
-        {bookItems.filter((item) => (!fantasyFilterOn || item.genre === "Fantasy") && (!romanceFilterOn || item.genre === "Romance") && (!selfHelpFilterOn || item.genre === "Self-Help") && (!scienceFictionFilterOn || item.genre === "Science Fiction") && (!horrorFilterOn || item.genre === "Horror") && (!historicalFictionFilterOn || item.genre === "Historical Fiction") && (!nonFictionFilterOn || item.genre === "Non-Fiction") && (!thrillerFilterOn || item.genre === "Thriller") && (!lessThanFourStarsFilterOn || item.stars < 4) && (!fourStarsOrMoreFilterOn || item.stars >= 4) )
-          .map((item) => (
-            <BookItem
-              key={item.key}
-              title={item.title}
-              author={item.author}
-              genre={item.genre}
-              stars={item.stars}
-              length={item.length}
-              image={item.image} 
-              incrementWantToReadTotal={incrementWantToReadTotal} 
-              decrementWantToReadTotal={decrementWantToReadTotal} 
-              addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
-              removeFromWantToReadBooks={(bookToRemove) => removeFromWantToReadBooks(bookToRemove)}
-            />
+      <h1>Library</h1>
+      <div className="topRow">
+        {topRowItems.map((item) => (
+          <BookItem
+            key={item.key}
+            title={item.title}
+            author={item.author}
+            genre={item.genre}
+            stars={item.stars}
+            length={item.length}
+            image={item.image}
+            inWantToRead={wantToReadBooks.has(item.title)}
+            incrementWantToReadTotal={incrementWantToReadTotal} 
+            decrementWantToReadTotal={decrementWantToReadTotal} 
+            addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
+            removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
+          />
         ))}
-      </header>
+      </div>
+      <div className="bottomRow">
+        {bottomRowItems.map((item) => (
+          <BookItem
+            key={item.key}
+            title={item.title}
+            author={item.author}
+            genre={item.genre}
+            stars={item.stars}
+            length={item.length}
+            image={item.image} 
+            inWantToRead={wantToReadBooks.has(item.title)}
+            incrementWantToReadTotal={incrementWantToReadTotal} 
+            decrementWantToReadTotal={decrementWantToReadTotal} 
+            addToWantToReadBooks={(newTitle) => addToWantToReadBooks(newTitle)} 
+            removeFromWantToReadBooks={(removeTitle) => removeFromWantToReadBooks(removeTitle)}
+          />
+        ))}
+      </div>
+    </header>
       <header id="Guide">
         <h1>Filters</h1>
         <button onClick={sortByLength}>Sort by Length (shortest to longest)</button>
