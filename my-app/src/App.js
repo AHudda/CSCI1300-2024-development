@@ -19,8 +19,6 @@ function App() {
   const addToWantToReadBooks = (newTitle) => setWantToReadBooks(new Set([... wantToReadBooks, newTitle]));
   const removeFromWantToReadBooks = (removeTitle) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== removeTitle)));
   
-    
-
   // Genre Filters
   const [fantasyFilterOn, setFantasyFilterOn] = useState(false);
   const [romanceFilterOn, setRomanceFilterOn] = useState(false);
@@ -167,8 +165,8 @@ function App() {
       </header>
     <header id="Want_To_Read">
       <h1>Want To Read</h1>
-      <h2>Books in list: {wantToReadBooks}</h2>
-      <h2>Total books: {wantToReadTotal}</h2>
+      <h2>Books in list: {Array.from(wantToReadBooks).join(', ')}</h2>
+      <h3>Total books: {wantToReadTotal}</h3>
     </header>
    </div>
   );

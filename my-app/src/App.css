@@ -101,4 +101,12 @@
     font-size: calc(10px + 5vmin);
     border-bottom: 1px solid white;
   }
+
+  h2{
+    font-size: calc(10px + 3vmin);
+  }
+
+  h3{
+    font-size: calc(5px + 2vmin);
+  }
 }
