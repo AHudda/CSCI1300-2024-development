@@ -10,13 +10,19 @@ bookData.forEach((item) => {
 });
 
 function App() {
+  // Total number of books in "Want To Read"
   const [wantToReadTotal, setWantToReadTotal] = useState(0);
   const incrementWantToReadTotal = () => setWantToReadTotal(wantToReadTotal + 1);
   const decrementWantToReadTotal = () => setWantToReadTotal(wantToReadTotal - 1);
 
+  // Books in "Want To Read"
   const [wantToReadBooks, setWantToReadBooks] = useState(new Set());
   const addToWantToReadBooks = (newBook) => setWantToReadBooks(new Set([... wantToReadBooks, newBook]))
   const removeFromWantToReadBooks = (bookToRemove) => setWantToReadBooks(new Set([... wantToReadBooks].filter((book) => book !== bookToRemove)));
+
+  // Filters
+  const [fantasyFilterOn, setFantasyFilterOn] = useState(false);
+  const [romanceFilterOn, setRomanceFilterOn] = useState(false);
 
   // Using useState to ensure that BookItem(s) can maintain their internal state when re-rendered
   const [bookItems, setBookItems] = useState(bookData.map((item, index) => ({
@@ -39,13 +45,14 @@ function App() {
   const resetSorting = () => {
     const sortedBookItems = [...bookItems].sort((a, b) => a.key - b.key);
     setBookItems(sortedBookItems);
+    setFantasyFilterOn(false);
   }
 
   return (
     <div className="App">
       <header id="Library">
         <h1>Library</h1>
-        {bookItems.map((item) => (
+        {bookItems.filter((item) => !fantasyFilterOn || item.genre == "Fantasy").map((item) => (
           <BookItem key={item.key} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
             incrementWantToReadTotal={incrementWantToReadTotal} 
             decrementWantToReadTotal={decrementWantToReadTotal} 
@@ -54,10 +61,11 @@ function App() {
           />
         ))}
       </header>
-      <header id="Filters">
+      <header id="Guide">
         <h1>Filters</h1>
         <button onClick={sortByLength}>Sort by Length</button>
         <button onClick={resetSorting}>Reset Sorting</button>
+        <button onClick={() => setFantasyFilterOn(true)}>Fantasy</button>
       </header>
       <header id="Want_To_Read">
         <h1>Want To Read</h1>
