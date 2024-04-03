@@ -23,6 +23,12 @@ function App() {
   // Filters
   const [fantasyFilterOn, setFantasyFilterOn] = useState(false);
   const [romanceFilterOn, setRomanceFilterOn] = useState(false);
+  const [selfHelpFilterOn, setSelfHelpFilterOn] = useState(false);
+  const [scienceFictionFilterOn, setScienceFictionFilterOn] = useState(false);
+  const [horrorFilterOn, setHorrorFilterOn] = useState(false);
+  const [historicalFictionFilterOn, setHistoricalFictionFilterOn] = useState(false);
+  const [nonFictionFilterOn, setNonFictionFilterOn] = useState(false);
+  const [thrillerFilterOn, setThrillerFilterOn] = useState(false);
 
   // Using useState to ensure that BookItem(s) can maintain their internal state when re-rendered
   const [bookItems, setBookItems] = useState(bookData.map((item, index) => ({
@@ -46,19 +52,34 @@ function App() {
     const sortedBookItems = [...bookItems].sort((a, b) => a.key - b.key);
     setBookItems(sortedBookItems);
     setFantasyFilterOn(false);
+    setRomanceFilterOn(false);
+    setSelfHelpFilterOn(false);
+    setScienceFictionFilterOn(false);
+    setHorrorFilterOn(false);
+    setHistoricalFictionFilterOn(false);
+    setNonFictionFilterOn(false);
+    setThrillerFilterOn(false);
   }
 
   return (
     <div className="App">
       <header id="Library">
         <h1>Library</h1>
-        {bookItems.filter((item) => !fantasyFilterOn || item.genre == "Fantasy").map((item) => (
-          <BookItem key={item.key} title={item.title} author={item.author} genre={item.genre} stars={item.stars} length={item.length} image={item.image} 
-            incrementWantToReadTotal={incrementWantToReadTotal} 
-            decrementWantToReadTotal={decrementWantToReadTotal} 
-            addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
-            removeFromWantToReadBooks={(bookToRemove) => removeFromWantToReadBooks(bookToRemove)}
-          />
+        {bookItems.filter((item) => (!fantasyFilterOn || item.genre === "Fantasy") && (!romanceFilterOn || item.genre === "Romance") && (!selfHelpFilterOn || item.genre === "Self-Help") && (!scienceFictionFilterOn || item.genre === "Science Fiction") && (!horrorFilterOn || item.genre === "Horror") && (!historicalFictionFilterOn || item.genre === "Historical Fiction") && (!nonFictionFilterOn || item.genre === "Non-Fiction") && (!thrillerFilterOn || item.genre === "Thriller"))
+          .map((item) => (
+            <BookItem
+              key={item.key}
+              title={item.title}
+              author={item.author}
+              genre={item.genre}
+              stars={item.stars}
+              length={item.length}
+              image={item.image} 
+              incrementWantToReadTotal={incrementWantToReadTotal} 
+              decrementWantToReadTotal={decrementWantToReadTotal} 
+              addToWantToReadBooks={(newBook) => addToWantToReadBooks(newBook)} 
+              removeFromWantToReadBooks={(bookToRemove) => removeFromWantToReadBooks(bookToRemove)}
+            />
         ))}
       </header>
       <header id="Guide">
@@ -66,6 +87,14 @@ function App() {
         <button onClick={sortByLength}>Sort by Length</button>
         <button onClick={resetSorting}>Reset Sorting</button>
         <button onClick={() => setFantasyFilterOn(true)}>Fantasy</button>
+        <button onClick={() => setRomanceFilterOn(true)}>Romance</button>
+        <button onClick={() => setSelfHelpFilterOn(true)}>Self-Help</button>
+        <button onClick={() => setScienceFictionFilterOn(true)}>Science Fiction</button>
+        <button onClick={() => setHorrorFilterOn(true)}>Horror</button>
+        <button onClick={() => setHistoricalFictionFilterOn(true)}>Historical Fiction</button>
+        <button onClick={() => setNonFictionFilterOn(true)}>Non-Fiction</button>
+        <button onClick={() => setThrillerFilterOn(true)}>Thriller</button>
+
       </header>
       <header id="Want_To_Read">
         <h1>Want To Read</h1>
